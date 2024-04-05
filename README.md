@@ -1,7 +1,6 @@
 # PSTicTacToe
-Play Tic-Tac-Toe against your printer
 
-#### Play Tic-Tac-Toe Against your Printer
+### Play Tic-Tac-Toe Against your Printer
 
 Send `ttt.ps` to your printer:
 
@@ -11,9 +10,11 @@ Or use GhostScript:
 
     gs -DNOSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile="%d.pdf" ttt.ps
 
+Play by entering numbers from 1 to 9.
+
 The code will produce console + print output.
 
-#### Files
+### Files
 
 Both files are equivalent.
 
@@ -21,7 +22,7 @@ Both files are equivalent.
 
 `ttt.ps` is the minified version.
 
-#### Algorithm
+### Algorithm
 
 Printer applies the following rules.
 
@@ -31,7 +32,7 @@ Dead simple and keeps the fun.
 2. printer attempts to win
 3. printer plays randomly
 
-#### Sample Output
+### Sample Output
 
     OX.
     .X.
