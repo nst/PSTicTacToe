@@ -6,9 +6,9 @@ Send `ttt.ps` to your printer:
 
     cat ttt.ps - | nc 192.168.2.10 9100
     
-Or use GhostScript:
+Or use Ghostscript:
 
-    gs -DNOSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile="%d.pdf" ttt.ps
+    gs ttt.ps
 
 Play by entering numbers from 1 to 9.
 
