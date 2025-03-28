@@ -12,165 +12,165 @@
 /b (.........) def
 
 /_msg_showBoard {
-	/msg exch def
-	() =
-	b 0 3 getinterval =
-	b 3 3 getinterval =
-	b 6 3 getinterval =
-	() =
-	msg null ne {
-		msg =
-	} if
+    /msg exch def
+    () =
+    b 0 3 getinterval =
+    b 3 3 getinterval =
+    b 6 3 getinterval =
+    () =
+    msg null ne {
+        msg =
+    } if
 } def
 
 /numberOfFreePos {
-	/n 0 def
-	b {
-		46 eq { /n n 1 add def } if
-	} forall
-	n
+    /n 0 def
+    b {
+        46 eq { /n n 1 add def } if
+    } forall
+    n
 } def
 
 /printerTriesToWinOrBlock_b_ {
-	/printerHasPlayed false def
+    /printerHasPlayed false def
 
-	0 1 8 {
-		/i exch def
-		/b2 b dup length string cvs def
-		b2 i 1 getinterval (.) eq {
-			[(X) (O)] {
-				/p exch def
+    0 1 8 {
+        /i exch def
+        /b2 b dup length string cvs def
+        b2 i 1 getinterval (.) eq {
+            [(X) (O)] {
+                /p exch def
 
-				b2 i p putinterval
-				b2 _board_SomeoneHasWon_b_ {
-					b i (X) putinterval
-					/printerHasPlayed true def
-					exit
-				} if
-			} forall
-		} if		
-		printerHasPlayed { exit } if
-	} for
-	
-	printerHasPlayed
-	
+                b2 i p putinterval
+                b2 _board_SomeoneHasWon_b_ {
+                    b i (X) putinterval
+                    /printerHasPlayed true def
+                    exit
+                } if
+            } forall
+        } if        
+        printerHasPlayed { exit } if
+    } for
+    
+    printerHasPlayed
+    
 } def
 
 /printerPlaysRandomly {
-	/x rand numberOfFreePos mod def
-	/c 0 def
-	0 1 b length 1 sub {
-		/i exch def
-		b i 1 getinterval (.) eq {
-			c x eq {
-				b i (X) putinterval
-				exit
-			} if
-			/c c 1 add def
-		} if
-	} for
+    /x rand numberOfFreePos mod def
+    /c 0 def
+    0 1 b length 1 sub {
+        /i exch def
+        b i 1 getinterval (.) eq {
+            c x eq {
+                b i (X) putinterval
+                exit
+            } if
+            /c c 1 add def
+        } if
+    } for
 } def
 
 /readPos_i_ {
-	{
-    	(human turn (1-9) >) print flush
-    	(%lineedit) (r) file (        ) readline
-   		pop
-		dup
+    {
+        (human turn (1-9) >) print flush
+        (%lineedit) (r) file (        ) readline
+           pop
+        dup
 
-		length 0 gt { 0 1 getinterval } { pop ( ) } ifelse
-    	
-		/o exch def
-				
-		(123456789) o search {
-			pop pop pop
+        length 0 gt { 0 1 getinterval } { pop ( ) } ifelse
+        
+        /o exch def
+                
+        (123456789) o search {
+            pop pop pop
 
-			b o cvi 1 sub 1 getinterval (.) eq {
-				o cvi 1 sub
-				exit
-			} if
-		} {
-			pop
-		} ifelse
-		
-		(bad input) =	
-	} loop
+            b o cvi 1 sub 1 getinterval (.) eq {
+                o cvi 1 sub
+                exit
+            } if
+        } {
+            pop
+        } ifelse
+        
+        (bad input) =    
+    } loop
 } def
 
 /_board_SomeoneHasWon_b_ {
-	/board exch def
-		
-	/lines [[0 1 2] [3 4 5] [6 7 8] [0 3 6] [1 4 7] [2 5 8] [0 4 8] [2 4 6]] def
+    /board exch def
+        
+    /lines [[0 1 2] [3 4 5] [6 7 8] [0 3 6] [1 4 7] [2 5 8] [0 4 8] [2 4 6]] def
 
-	/isOver false def
+    /isOver false def
 
-	[(O) (X)] {
-		/p exch def
-		lines {
-			/positions exch def
+    [(O) (X)] {
+        /p exch def
+        lines {
+            /positions exch def
 
-			/isOver true def			
-			positions {
-				/pos exch def
-				/isOver board pos 1 getinterval p eq isOver and def 
-			} forall
+            /isOver true def            
+            positions {
+                /pos exch def
+                /isOver board pos 1 getinterval p eq isOver and def 
+            } forall
 
-			isOver { exit } if
-		} forall
-		isOver { exit } if
-	} forall
-	isOver
+            isOver { exit } if
+        } forall
+        isOver { exit } if
+    } forall
+    isOver
 } def
 
 /_msg_printBoard {
-	/msg exch def
-	
-	4 setlinewidth
+    /msg exch def
+    
+    4 setlinewidth
 
-	200 700 moveto 200 400 lineto
-	300 700 moveto 300 400 lineto
+    200 700 moveto 200 400 lineto
+    300 700 moveto 300 400 lineto
 
-	100 600 moveto 400 600 lineto
-	100 500 moveto 400 500 lineto
+    100 600 moveto 400 600 lineto
+    100 500 moveto 400 500 lineto
 
-	stroke
+    stroke
 
-	0 1 b length 1 sub {
-		/i exch def
-		b i 1 getinterval (.) ne {
-			gsave
-			0 0 moveto
-			100 i 3 mod 100 mul add 35 add
-			700 i 3 idiv 100 mul sub 65 sub moveto
-			b i 1 getinterval show
-			grestore
-		} if
-	} for
+    0 1 b length 1 sub {
+        /i exch def
+        b i 1 getinterval (.) ne {
+            gsave
+            0 0 moveto
+            100 i 3 mod 100 mul add 35 add
+            700 i 3 idiv 100 mul sub 65 sub moveto
+            b i 1 getinterval show
+            grestore
+        } if
+    } for
 
-	msg null ne {
-		100 300 moveto
-		msg show
-	} if
+    msg null ne {
+        100 300 moveto
+        msg show
+    } if
 
-	showpage
+    showpage
 } def
 
 /_s_checkGameState {
-	/s7 exch def
-	
-	/msg null def
-	
-	numberOfFreePos 0 eq {
-		/msg (TIE) def
-	} if
-	
-	b _board_SomeoneHasWon_b_ {
-		/msg (XXXXXXX WINS) def
-		msg 0 s7 putinterval
-	} if
-	msg _msg_showBoard
-	msg _msg_printBoard
-	msg null ne { quit } if
+    /s7 exch def
+    
+    /msg null def
+    
+    numberOfFreePos 0 eq {
+        /msg (TIE) def
+    } if
+    
+    b _board_SomeoneHasWon_b_ {
+        /msg (XXXXXXX WINS) def
+        msg 0 s7 putinterval
+    } if
+    msg _msg_showBoard
+    msg _msg_printBoard
+    msg null ne { quit } if
 } def
 
 << /PageSize [595 842] >> setpagedevice
@@ -178,16 +178,16 @@
 /Courier findfont 48 scalefont setfont
 
 {
-	/msg null def
-	
-	printerTriesToWinOrBlock_b_ not {
-		printerPlaysRandomly
-	} if
-	
-	(PRINTER) _s_checkGameState
+    /msg null def
+    
+    printerTriesToWinOrBlock_b_ not {
+        printerPlaysRandomly
+    } if
+    
+    (PRINTER) _s_checkGameState
 
-	b readPos_i_ (O) putinterval
+    b readPos_i_ (O) putinterval
 
-	(HUMAN  ) _s_checkGameState
-	
+    (HUMAN  ) _s_checkGameState
+    
 } loop
