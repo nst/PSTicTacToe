@@ -24,11 +24,10 @@
 } def
 
 /numberOfFreePos {
-    /n 0 def
+    0
     b {
-        46 eq { /n n 1 add def } if
+        46 eq { 1 add } if
     } forall
-    n
 } def
 
 /printerTriesToWinOrBlock_b_ {
