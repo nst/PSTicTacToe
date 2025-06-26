@@ -9,8 +9,6 @@
 % Real PostScript printer:
 % cat ttt_full.ps - | nc 192.168.2.10 9100
 
-/b (.........) def
-
 /_msg_showBoard {
     /msg exch def
     () =
@@ -154,7 +152,8 @@
     showpage
 } def
 
-/_s_checkGameState {
+/_s_b_checkGameState {
+    /doPrint exch def
     /s7 exch def
     
     /msg null def
@@ -164,11 +163,15 @@
     } if
     
     b _board_SomeoneHasWon_b_ {
-        /msg (XXXXXXX WINS) def
+        /msg (        WINS) def
         msg 0 s7 putinterval
+        /doPrint true def
     } if
-    msg _msg_showBoard
-    msg _msg_printBoard
+    
+    doPrint {
+        msg _msg_showBoard
+        msg _msg_printBoard
+    } if
     msg null ne { quit } if
 } def
 
@@ -176,17 +179,24 @@
 
 /Courier findfont 48 scalefont setfont
 
+/b (123456789) def
+
+(HUMAN'S TURN) _msg_showBoard
+(HUMAN'S TURN) _msg_printBoard
+
+/b (.........) def
+
 {
     /msg null def
+    
+    b readPos_i_ (O) putinterval
+    
+    (  HUMAN) false _s_b_checkGameState
     
     printerTriesToWinOrBlock_b_ not {
         printerPlaysRandomly
     } if
-    
-    (PRINTER) _s_checkGameState
 
-    b readPos_i_ (O) putinterval
-
-    (HUMAN  ) _s_checkGameState
+    (PRINTER) true _s_b_checkGameState
     
 } loop
