@@ -9,22 +9,24 @@
 % On a real PostScript printer:
 % cat ttt.ps - | nc 192.168.2.10 9100
 
-/Courier findfont 48 scalefont setfont/b(.........)def/f{/n 0 def b{46 eq{/n n 1
-add def}if}forall n}def/w{/c exch def[(O)(X)]{/p exch def[[0 1 2][3 4 5][6 7 8][
-0 3 6][1 4 7][2 5 8][0 4 8][2 4 6]]{/t exch def/o true def t{/pos exch def/o c
-pos 1 getinterval p eq o and def}forall o{exit}if}forall o{exit}if}forall o}def
-/g{/s exch def/m null def f 0 eq{/m(TIE)def}if b w{/m(XXXXXXX WINS)def m 0 s
-putinterval}if()= 0 3 6{b exch 3 getinterval =}for()= m null ne{m =}if 4
-setlinewidth 200 700 moveto 200 400 lineto 300 700 moveto 300 400 lineto 100 600
-moveto 400 600 lineto 100 500 moveto 400 500 lineto stroke 0 1 b length 1 sub{/i
-exch def b i 1 getinterval(.)ne{gsave 0 0 moveto 100 i 3 mod 100 mul add 35 add
-700 i 3 idiv 100 mul sub 65 sub moveto b i 1 getinterval show grestore}if}for m
-null ne{100 300 moveto m show}if showpage m null ne{quit}if}def{/d false def 0 1
-8{/i exch def/e b dup length string cvs def e i 1 getinterval(.)eq{[(X)(O)]{/p
-exch def e i p putinterval e w{b i(X)putinterval/d true def exit}if}forall}if d{
-exit}if}for d not{/x rand f mod def/c 0 def 0 1 b length 1 sub{/i exch def b i 1
-getinterval(.)eq{c x eq{b i(X)putinterval exit}if/c c 1 add def}if}for}if
-(PRINTER)g b{(human turn (1-9) >)print flush(%lineedit)(r)file(    )readline pop
-dup length 0 gt{0 1 getinterval}{pop( )}ifelse/o exch def(123456789)o search{pop
-pop pop b o cvi 1 sub 1 getinterval(.)eq{o cvi 1 sub exit}if}{pop}ifelse
-(bad input) ==}loop(O)putinterval}loop
+/g{getinterval}def/D(123456789)def/SB{()= b 0 3 g = b 3 3 g = b 6 3 g =()= m
+null ne{m =}if}def/nf{0 b{46 eq{1 add}if}forall}def/pp_b_{/pp false def 0 1 8{/i
+exch def/b2 b dup length string cvs def b2 i 1 g(.)eq{[(X)(O)]{/p exch def b2 i
+p putinterval b2 bob{b i(X)putinterval/pp true def exit}if}forall}if pp{exit}if}
+for pp}def/ppr{/x rand nf mod def/c 0 def 0 1 b length 1 sub{/i exch def b i 1 g
+(.)eq{c x eq{b i(X)putinterval exit}if/c c 1 add def}if}for}def/r_i_{{(human \
+turn (1-9) >)print flush(%lineedit)(r)file(        )readline pop dup length 0 gt
+{0 1 g}{pop ( )}ifelse/o exch def D o search{pop pop pop b o cvi 1 sub 1 g(.)eq{
+o cvi 1 sub exit}if}{pop}ifelse(bad input)= SB PB}loop}def/bob{/bd exch def
+/lines[[0 1 2][3 4 5][6 7 8][0 3 6][1 4 7][2 5 8][0 4 8][2 4 6]]def/ov false def
+[(O)(X)]{/p exch def lines{/poss exch def/ov true def poss{/pos exch def/ov bd
+pos 1 g p eq ov and def}forall ov{exit}if}forall ov{exit}if}forall ov}def/PB{0.2
+setlinewidth 10 10 scale 20 70 moveto 20 40 lineto 30 70 moveto 30 40 lineto 10
+60 moveto 40 60 lineto 10 50 moveto 40 50 lineto stroke 0 1 b length 1 sub{/i
+exch def b i 1 g(.)ne{gsave 10 i 3 mod 10 mul add 3 add 70 i 3 idiv 10 mul sub 7
+sub moveto b i 1 g show grestore}if}for m null ne{10 30 moveto m show}if
+showpage}def/_s_b_Check{/dp exch def/s7 exch def/m null def nf 0 eq{/m(TIE)def
+/dp true def}if b bob{/m(        WINS)def m 0 s7 putinterval/dp true def}if dp{
+SB PB}if m null ne{quit}if}def/Courier findfont 5 scalefont setfont/b D def/m
+(HUMAN PLAYS O)def SB PB/b(.........)def{/m null def b r_i_(O)putinterval
+(  HUMAN)false _s_b_Check pp_b_ not{ppr}if(PRINTER)true _s_b_Check}loop
