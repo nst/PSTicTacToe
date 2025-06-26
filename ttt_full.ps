@@ -4,29 +4,21 @@
 % 2024-04 Nicolas Seriot https://github.com/nst/PSTicTacToe
 % 
 % GhostScript:
-% gs -DNOSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile="%d.pdf" ttt_full.ps
+% gs ttt_full.ps
 % 
 % Real PostScript printer:
 % cat ttt_full.ps - | nc 192.168.2.10 9100
 
-/_msg_showBoard {
-    /msg exch def
+/ShowBoard {
     () =
     b 0 3 getinterval =
     b 3 3 getinterval =
     b 6 3 getinterval =
     () =
-    msg null ne {
-        msg =
-    } if
+    m null ne { m = } if
 } def
 
-/numberOfFreePos {
-    0
-    b {
-        46 eq { 1 add } if
-    } forall
-} def
+/numberOfFreePos { 0 b { 46 eq { 1 add } if } forall } def
 
 /printerTriesToWinOrBlock_b_ {
     /printerHasPlayed false def
@@ -50,7 +42,6 @@
     } for
     
     printerHasPlayed
-    
 } def
 
 /printerPlaysRandomly {
@@ -90,7 +81,7 @@
             pop
         } ifelse
         
-        (bad input) =    
+        (bad input) = ShowBoard PrintBoard
     } loop
 } def
 
@@ -119,9 +110,7 @@
     isOver
 } def
 
-/_msg_printBoard {
-    /msg exch def
-    
+/PrintBoard {    
     4 setlinewidth
 
     200 700 moveto 200 400 lineto
@@ -144,9 +133,9 @@
         } if
     } for
 
-    msg null ne {
+    m null ne {
         100 300 moveto
-        msg show
+        m show
     } if
 
     showpage
@@ -156,24 +145,23 @@
     /doPrint exch def
     /s7 exch def
     
-    /msg null def
+    /m null def
     
     numberOfFreePos 0 eq {
-        /msg (TIE) def
+        /m (TIE) def
         /doPrint true def
     } if
     
     b _board_SomeoneHasWon_b_ {
-        /msg (        WINS) def
-        msg 0 s7 putinterval
+        /m (        WINS) def
+        m 0 s7 putinterval
         /doPrint true def
     } if
     
     doPrint {
-        msg _msg_showBoard
-        msg _msg_printBoard
+        ShowBoard PrintBoard
     } if
-    msg null ne { quit } if
+    m null ne { quit } if
 } def
 
 << /PageSize [595 842] >> setpagedevice
@@ -182,13 +170,14 @@
 
 /b (123456789) def
 
-(HUMAN'S TURN) _msg_showBoard
-(HUMAN'S TURN) _msg_printBoard
+/m (HUMAN PLAYS O) def
+
+ShowBoard PrintBoard
 
 /b (.........) def
 
 {
-    /msg null def
+    /m null def
     
     b readPos_i_ (O) putinterval
     
