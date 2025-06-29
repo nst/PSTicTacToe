@@ -10,19 +10,19 @@
 % cat ttt.ps - | nc 192.168.2.10 9100
 
 /d{def}def/e{exch}d/M{moveto}d/O{pop}d/g{getinterval}d/l{length}d/L{lineto}d/I{
-if}d/P{putinterval}d/D(123456789)d/nf{0 b{46 eq{1 add}I}forall}d/pp_b_{/pp false
-d 0 1 8{/i e d/b2 b dup l string cvs d b2 i 1 g(.)eq{[(X)(O)]{/p e d b2 i p P b2
-B{b i(X)P/pp true d exit}I}forall}I pp{exit}I}for pp}d/ppr{/x rand nf mod d/c 0
-d 0 1 b l 1 sub{/i e d b i 1 g(.)eq{c x eq{b i(X)P exit}I/c c 1 add d}I}for}d/r{
-{(human (1-9)>)print flush(%lineedit)(r)file(________)readline O dup l 0 gt{0 1
-g}{O ( )}ifelse/o e d D o search{O O O b o cvi 1 sub 1 g(.)eq{o cvi 1 sub exit}I
-}{O}ifelse(bad input)= S}loop}d/B{/bd e d/lines[[0 1 2][3 4 5][6 7 8][0 3 6][1 4
-7][2 5 8][0 4 8][2 4 6]]d/ov false d[(O)(X)]{/p e d lines{/poss e d/ov true d
-poss{/pos e d/ov bd pos 1 g p eq ov and d}forall ov{exit}I}forall ov{exit}I}
-forall ov}d/S{0.2 setlinewidth 10 10 scale 20 70 M 20 40 L 30 70 M 30 40 L 10 60
-M 40 60 L 10 50 M 40 50 L stroke 0 1 b l 1 sub{/i e d b i 1 g(.)ne{gsave 10 i 3
-mod 10 mul add 3 add 70 i 3 idiv 10 mul sub 7 sub M b i 1 g show grestore}I}for
-m null ne{10 30 M m show}I showpage}d/C{/dp e d/s7 e d/m null d nf 0 eq{/m(TIE)d
-/dp true d}I b B{/m(________WINS)d m 0 s7 P/dp true d}I dp{S}I m null ne{quit}I}
-d/Courier findfont 5 scalefont setfont/b D d/m(HUMAN PLAYS O)d S/b(.........)d{
-/m null d b r(O)P(__HUMAN) false C pp_b_ not{ppr}I(PRINTER)true C}loop
+if}d/P{putinterval}d/D(123456789)d/nf{0 b{46 eq{1 add}I}forall}d/R{/q false d 0
+1 8{/i e d/A b dup l string cvs d A i 1 g(.)eq{[(X)(O)]{/p e d A i p P A B{b i
+(X)P/q true d exit}I}forall}I q{exit}I}for q}d/Q{/x rand nf mod d/c 0 d 0 1 b l
+1 sub{/i e d b i 1 g(.)eq{c x eq{b i(X)P exit}I/c c 1 add d}I}for}d/r{{(human (\
+1-9)>)print flush(%lineedit)(r)file(________)readline O dup l 0 gt{0 1 g}{O ( )}
+ifelse/o e d D o search{O O O b o cvi 1 sub 1 g(.)eq{o cvi 1 sub exit}I}{O}
+ifelse(bad input)= S}loop}d/B{/z e d/N[[0 1 2][3 4 5][6 7 8][0 3 6][1 4 7][2 5 8
+][0 4 8][2 4 6]]d/V false d[(O)(X)]{/p e d N{/T e d/V true d T{/U e d/V z U 1 g
+p eq V and d}forall V{exit}I}forall V{exit}I}forall V}d/S{0.2 setlinewidth 10 10
+scale 20 70 M 20 40 L 30 70 M 30 40 L 10 60 M 40 60 L 10 50 M 40 50 L stroke 0 1
+b l 1 sub{/i e d b i 1 g(.)ne{gsave 10 i 3 mod 10 mul add 3 add 70 i 3 idiv 10
+mul sub 7 sub M b i 1 g show grestore}I}for m null ne{10 30 M m show}I showpage}
+d/C{/E e d/s7 e d/m null d nf 0 eq{/m(TIE)d/E true d}I b B{/m(________WINS)d m 0
+s7 P/E true d}I E{S}I m null ne{quit}I}d/Courier findfont 5 scalefont setfont/b
+D d/m(HUMAN PLAYS O)d S/b(.........)d{/m null d b r(O)P(__HUMAN) false C R not{Q
+}I(PRINTER)true C}loop
