@@ -9,22 +9,21 @@
 % On a real PostScript printer:
 % cat ttt.ps - | nc 192.168.2.10 9100
 
-/M{moveto}def/g{getinterval}def/P{putinterval}def/D(123456789)def/nf{0 b{46 eq{1
-add}if}forall}def/pp_b_{/pp false def 0 1 8{/i exch def/b2 b dup length string
-cvs def b2 i 1 g(.)eq{[(X)(O)]{/p exch def b2 i p P b2 bob{b i(X)P/pp true def
-exit}if}forall}if pp{exit}if}for pp}def/ppr{/x rand nf mod def/c 0 def 0 1 b
-length 1 sub{/i exch def b i 1 g(.)eq{c x eq{b i(X)P exit}if/c c 1 add def}if}
-for}def/r{{(human (1-9)>)print flush(%lineedit)(r)file(        )readline pop dup
-length 0 gt{0 1 g}{pop ( )}ifelse/o exch def D o search{pop pop pop b o cvi 1
-sub 1 g(.)eq{o cvi 1 sub exit}if}{pop}ifelse(bad input)= PB}loop}def/bob{/bd
-exch def/lines[[0 1 2][3 4 5][6 7 8][0 3 6][1 4 7][2 5 8][0 4 8][2 4 6]]def/ov
-false def[(O)(X)]{/p exch def lines{/poss exch def/ov true def poss{/pos exch
-def/ov bd pos 1 g p eq ov and def}forall ov{exit}if}forall ov{exit}if}forall ov}
-def/PB{0.2 setlinewidth 10 10 scale 20 70 M 20 40 lineto 30 70 M 30 40 lineto 10
-60 M 40 60 lineto 10 50 M 40 50 lineto stroke 0 1 b length 1 sub{/i exch def b i
-1 g(.)ne{gsave 10 i 3 mod 10 mul add 3 add 70 i 3 idiv 10 mul sub 7 sub M b i 1
-g show grestore}if}for m null ne{10 30 M m show}if showpage}def/C{/dp exch def
-/s7 exch def/m null def nf 0 eq{/m(TIE)def/dp true def}if b bob{/m(        WINS)
-def m 0 s7 P/dp true def}if dp{PB}if m null ne{quit}if}def/Courier findfont 5
-scalefont setfont/b D def/m(HUMAN PLAYS O)def PB/b(.........)def{/m null def b
-r(O)P(  HUMAN) false C pp_b_ not{ppr}if(PRINTER)true C}loop
+/d{def}def/e{exch}d/M{moveto}d/O{pop}d/g{getinterval}d/l{length}d/L{lineto}d/P{
+putinterval}d/D(123456789)d/nf{0 b{46 eq{1 add}if}forall}d/pp_b_{/pp false d 0 1
+8{/i e d/b2 b dup l string cvs d b2 i 1 g(.)eq{[(X)(O)]{/p e d b2 i p P b2 bob{b
+i(X)P/pp true d exit}if}forall}if pp{exit}if}for pp}d/ppr{/x rand nf mod d/c 0 d
+0 1 b l 1 sub{/i e d b i 1 g(.)eq{c x eq{b i(X)P exit}if/c c 1 add d}if}for}d/r{
+{(human (1-9)>)print flush(%lineedit)(r)file(________)readline O dup l 0 gt{0 1
+g}{O ( )}ifelse/o e d D o search{O O O b o cvi 1 sub 1 g(.)eq{o cvi 1 sub exit}
+if}{O}ifelse(bad input)= PB}loop}d/bob{/bd e d/lines[[0 1 2][3 4 5][6 7 8][0 3 6
+][1 4 7][2 5 8][0 4 8][2 4 6]]d/ov false d[(O)(X)]{/p e d lines{/poss e d/ov
+true d poss{/pos e d/ov bd pos 1 g p eq ov and d}forall ov{exit}if}forall ov{
+exit}if}forall ov}d/PB{0.2 setlinewidth 10 10 scale 20 70 M 20 40 L 30 70 M 30
+40 L 10 60 M 40 60 L 10 50 M 40 50 L stroke 0 1 b l 1 sub{/i e d b i 1 g(.)ne{
+gsave 10 i 3 mod 10 mul add 3 add 70 i 3 idiv 10 mul sub 7 sub M b i 1 g show
+grestore}if}for m null ne{10 30 M m show}if showpage}d/C{/dp e d/s7 e d/m null d
+nf 0 eq{/m(TIE)d/dp true d}if b bob{/m(________WINS)d m 0 s7 P/dp true d}if dp{
+PB}if m null ne{quit}if}d/Courier findfont 5 scalefont setfont/b D d/m
+(HUMAN PLAYS O)d PB/b(.........)d{/m null d b r(O)P(__HUMAN) false C pp_b_ not{
+ppr}if(PRINTER)true C}loop
